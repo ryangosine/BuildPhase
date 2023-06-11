@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../Header";
+import Header from "../components/Header/header";
+import SearchBar from "../components/SearchBar";
 
 const HomePage = () => {
   return (
     <HomePageWrapper>
       <Header />
+      <SearchBar />
     </HomePageWrapper>
   );
 };

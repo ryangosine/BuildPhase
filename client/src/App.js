@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "./components/Footer/footer";
+import HomePage from "./pages/homePage";
+import GlobalStyles from "./GlobalStyles";
 // import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-// import GlobalStyles from "./components/GlobalStyles";
 // import Dashboard from "./components/Pages/Dashboard";
 // import DeckBuilder from "./components/Pages/DeckBuilder";
 // import CardFound from "./components/Pages/CardFound";
@@ -14,7 +15,9 @@ import Footer from "./components/Footer/footer";
 const App = () => {
   return (
     <MainWrapper>
-      {/* <GlobalStyles />
+      <GlobalStyles />
+      <HomePage />
+      {/* 
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<HomePage />} />
