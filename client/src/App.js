@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Footer from "./components/Footer/footer";
 import HomePage from "./pages/homePage";
 import GlobalStyles from "./GlobalStyles";
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CardFound from "./pages/cardFound";
 // import Dashboard from "./components/Pages/Dashboard";
 // import DeckBuilder from "./components/Pages/DeckBuilder";
-// import CardFound from "./components/Pages/CardFound";
 // import Profile from "./components/Pages/Profile";
 // import Login from "./components/Pages/Login";
 // import Register from "./components/Pages/Register";
@@ -16,7 +16,13 @@ const App = () => {
   return (
     <MainWrapper>
       <GlobalStyles />
-      <HomePage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<HomePage />} />
+          <Route path="cardfound/:id" element={<CardFound />} />
+        </Routes>
+      </BrowserRouter>
+
       {/* 
       <BrowserRouter>
         <Routes>

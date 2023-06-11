@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header/header";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 const HomePage = () => {
   return (
