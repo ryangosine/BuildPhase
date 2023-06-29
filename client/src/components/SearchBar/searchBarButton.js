@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+/**
+ *
+ * THINGS TO WORK ON LATER:
+ * ** Error Handling for if there is nothing in the search term**
+ *
+ *
+ */
+
+>>>>>>> 87f030b20f4a957c82f3709d9752ce7fbf36fe8c
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
