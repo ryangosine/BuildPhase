@@ -22,6 +22,21 @@ const { restart } = require("nodemon");
 
 const { card } = require("mtgsdk");
 
+const getManyCards = async (req, res) => {
+  const { id } = req.params;
+  console.log("id", id);
+
+  try {
+    const getMultipleCards = await mtg.card
+      .all({ name: id })
+      .on("data", getMultipleCards(card), console.log("card.name", card.name));
+    res.status(200).json({ status: 200, data: card });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: 500, message: "Card Not Found" });
+  }
+};
+
 const getCard = async (req, res) => {
   const { id } = req.params;
   console.log("id", id);
@@ -43,6 +58,7 @@ const getCard = async (req, res) => {
 };
 
 module.exports = {
+  getManyCards,
   getCard,
 };
 

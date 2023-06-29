@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Footer from "./components/Footer/footer";
 import HomePage from "./pages/homePage";
 import GlobalStyles from "./GlobalStyles";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; //Link
 import CardFound from "./pages/cardFound";
+import ManyCardsFound from "./pages/manyCardsFound";
 // import Dashboard from "./components/Pages/Dashboard";
 // import DeckBuilder from "./components/Pages/DeckBuilder";
 // import Profile from "./components/Pages/Profile";
@@ -19,7 +20,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<HomePage />} />
-          <Route path="cardfound/:id" element={<CardFound />} />
+          <Route path="cardFound/:id" element={<CardFound />} />
+          <Route path="manyCardsFound/:id" element={<ManyCardsFound />} />
         </Routes>
       </BrowserRouter>
 
