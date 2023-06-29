@@ -4,34 +4,36 @@ import { useNavigate } from "react-router-dom";
 import { Routes, Route, Link } from "react-router-dom";
 import { CardContext } from "../Context/cardContext";
 import CardFound from "../../pages/cardFound";
-/**
- *
- * THINGS TO WORK ON LATER:
- * ** Error Handling for if there is nothing in the search term**
- *
- *
- */
+import ManyCardsFound from "../../pages/manyCardsFound";
+
 const SearchBarButton = () => {
-  const { searchTerm, setSearchTerm } = useContext(CardContext);
+  const { searchTerm } = useContext(CardContext);
   let navigate = useNavigate();
 
   const handleSubmitClick = (ev) => {
     ev.preventDefault();
-    navigate(`cardFound/${searchTerm}`);
+
+    const isExactMatch = searchTerm;
+    if (isExactMatch) {
+      navigate(`cardFound/${searchTerm}`);
+    } else {
+      navigate("manyCardsFound");
+    }
   };
 
   return (
     <ButtonWrapper>
       <div>
         <nav>
-          <button type="submit" onClick={(ev) => handleSubmitClick(ev)}>
-            <Link to="cardFound"></Link>
+          <button type="submit" onClick={handleSubmitClick}>
+            <Link to=""></Link>
           </button>
         </nav>
       </div>
 
       <Routes>
-        <Route path="cardFound" element={<CardFound />} />
+        <Route path="/manyCardsFound" element={<ManyCardsFound />} />
+        <Route path="/cardFound/:id" element={<CardFound />} />
       </Routes>
     </ButtonWrapper>
   );

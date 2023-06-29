@@ -8,7 +8,14 @@ import { CardContext } from "../components/Context/cardContext";
 const CardFound = () => {
   const [loading, setLoading] = useState(true);
   let { id } = useParams();
+  console.log("id", id);
   const { cardDisplay, setCardDisplay } = useContext(CardContext);
+
+  /** my understanding is:
+   *
+   * IF card.name is unspecific, return all with given text,
+   * ELSE return specific card
+   */
 
   useEffect(() => {
     setLoading(true);

@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { Routes, Route, Link } from "react-router-dom";
-import CardFound from "../../pages/cardFound";
 import { CardContext } from "../Context/cardContext";
 import SearchBarButton from "./searchBarButton";
+// import { useNavigate } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
+// import CardFound from "../../pages/cardFound";
 
 const SearchBar = () => {
-  const { searchTerm, setSearchTerm, cardDisplay, setCardDisplay } =
-    useContext(CardContext);
+  const { searchTerm, setSearchTerm } = useContext(CardContext);
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   // const handleSubmitClick = (ev) => {
   //   ev.preventDefault();
@@ -42,9 +41,9 @@ const SearchBar = () => {
         </nav>
       </div> */}
 
-      <Routes>
+      {/* <Routes>
         <Route path="cardFound" element={<CardFound />}></Route>
-      </Routes>
+      </Routes> */}
     </SearchBarWrapper>
   );
 };
