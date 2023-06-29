@@ -4,7 +4,7 @@ import Footer from "./components/Footer/footer";
 import HomePage from "./pages/homePage";
 import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; //Link
-import CardFound from "./pages/cardFound";
+// import CardFound from "./pages/cardFound";
 import ManyCardsFound from "./pages/manyCardsFound";
 // import Dashboard from "./components/Pages/Dashboard";
 // import DeckBuilder from "./components/Pages/DeckBuilder";
@@ -20,8 +20,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<HomePage />} />
-          <Route path="cardFound/:id" element={<CardFound />} />
-          <Route path="manyCardsFound/:id" element={<ManyCardsFound />} />
+          {/* <Route path="cardFound/:id" element={<CardFound />} /> */}
+          <Route path="manyCardsFound" element={<ManyCardsFound />} />
         </Routes>
       </BrowserRouter>
 

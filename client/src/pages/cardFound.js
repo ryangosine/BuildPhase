@@ -5,17 +5,16 @@ import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
 import { CardContext } from "../components/Context/cardContext";
 
+/** my understanding is:
+ *
+ * IF card.name is unspecific, return all with given text,
+ * ELSE return specific card
+ */
 const CardFound = () => {
   const [loading, setLoading] = useState(true);
   let { id } = useParams();
   console.log("id", id);
   const { cardDisplay, setCardDisplay } = useContext(CardContext);
-
-  /** my understanding is:
-   *
-   * IF card.name is unspecific, return all with given text,
-   * ELSE return specific card
-   */
 
   useEffect(() => {
     setLoading(true);
@@ -24,12 +23,10 @@ const CardFound = () => {
       .then((data) => {
         setCardDisplay(data);
         setLoading(false);
-        // console.log("data", data);
-        // console.log("cardDisplay", cardDisplay);
       });
+    console.log("CardDISPLAY", cardDisplay);
+    console.log("cardDisplay.data", cardDisplay.data);
   }, []);
-
-  console.log("cardDisplay.data", cardDisplay.data);
 
   if (loading) {
     return <>LOADING</>;

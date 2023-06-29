@@ -27,39 +27,80 @@ const getManyCards = async (req, res) => {
   console.log("id", id);
 
   try {
-    const getMultipleCards = await mtg.card
-      .all({ name: id })
-      .on("data", getMultipleCards(card), console.log("card.name", card.name));
-    res.status(200).json({ status: 200, data: card });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ status: 500, message: "Card Not Found" });
-  }
-};
-
-const getCard = async (req, res) => {
-  const { id } = req.params;
-  console.log("id", id);
-  try {
     const cards = await mtg.card.where({ name: id });
-    if (cards.length > 0) {
-      const card = cards[0];
-      console.log("card.name", card.name);
-      res.status(200).json({ status: 200, data: card });
-    } else {
-      // Handle case when no card is found
-      res.status(404).json({ status: 404, message: "Card not found" });
-    }
-    console.log("RESULT", cards);
+    console.log("CARDS", cards);
+    res.status(200).json({ status: 200, data: cards });
   } catch (err) {
     console.error(err);
     res.status(500).json({ status: 500, message: "Internal Server Error" });
   }
 };
 
+// const getManyCards = async (req, res) => {
+//   const { id } = req.params;
+//   console.log("id", id);
+
+//   try {
+//     const getMultipleCards = await mtg.card
+//       .all({ name: id })
+//       .on("data", getMultipleCards(card), console.log("card.name", card.name));
+//     res.status(200).json({ status: 200, data: card });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ status: 500, message: "Card Not Found" });
+//   }
+// };
+
+/** ONE OF THESE TWO IS CORRECT */
+
+// const getCard = async (req, res) => {
+//   const { id } = req.params;
+//   console.log("id", id);
+//   try {
+//     const cards = await mtg.card.where({ name: id });
+//     if (cards.length > 0) {
+//       const card = cards.find((c) => c.name.toLowerCase() === id.toLowerCase());
+//       console.log("card.name", card.name);
+//       res.status(200).json({ status: 200, data: card });
+//     } else {
+//       res.status(404).json({ status: 404, message: "Card not found" });
+//     }
+//     console.log("RESULT", card);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ status: 500, message: "Internal Server Error" });
+//   }
+// };
+
+// const getCard = async (req, res) => {
+//   const { id } = req.params;
+//   console.log("id", id);
+//   try {
+//     const cards = await mtg.card.find({ name: id });
+//     if (card) {
+//       console.log("card.name", card.name);
+//       res.status(200).json({ status: 200, data: card });
+//     } else {
+//       res.status(404).json({ status: 404, message: "Card not found" });
+//     }
+//     console.log("RESULT", card);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ status: 500, message: "Internal Server Error" });
+//   }
+// };
+
+//       const card = cards[0];
+//       console.log("card.name", card.name);
+//     } else {
+//       // Handle case when no card is found
+//     }
+//     console.log("RESULT", cards);
+// };
+
 module.exports = {
   getManyCards,
-  getCard,
+  // getCard,
 };
 // THIS GOES INTO MY GET CARD FUNCTION PERHAPS
 // if (cards.length > 0) {

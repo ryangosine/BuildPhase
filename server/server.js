@@ -21,8 +21,8 @@ express()
   //          ENDPOINTS
   // ---------------------------------
 
-  .get("/api/get-cards", getManyCards)
-  .get("/api/get-card/:id", getCard)
+  .get("/api/get-cards/:id", getManyCards)
+  // .get("/api/get-card/:id", getCard)
   //   .post("/api/get-user", getUser)
   //   .post("/api/add-user", addUser)
 
